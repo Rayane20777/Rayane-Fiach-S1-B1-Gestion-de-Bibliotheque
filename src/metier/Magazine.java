@@ -31,7 +31,7 @@ public void add(Scanner scanner){
     setNumberOfPages(scanner.nextInt());
     System.out.print("Enter the status of the magazine: ");
     setStatus(scanner.nextBoolean());
-    System.out.print("Enter the number of the page: ");
+    System.out.print("Enter magazine serie: ");
     setNumber(scanner.nextInt());
 
 

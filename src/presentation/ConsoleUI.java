@@ -5,19 +5,22 @@ import metier.Magazine;
 import metier.Document;
 import utilitaire.DateUtils;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 
 public class ConsoleUI {
 
-    Scanner scanner = new Scanner(System.in);
-    Book book = new Book();
-    Magazine magazine = new Magazine();
+    private final Scanner scanner;
+    private final List<Book> books;
+    private final List<Magazine> magazines;
 
     public ConsoleUI() {
         scanner = new Scanner(System.in);
+        books = new ArrayList<>();
+        magazines = new ArrayList<>();
     }
 
 
@@ -52,13 +55,17 @@ public class ConsoleUI {
 
 
 
-                    if(docChoice == 1){
+                    if (docChoice == 1) {
+                        Book book = new Book();
                         book.add(scanner);
+                        books.add(book);
                         System.out.println("Book added successfully");
-                    }else if(docChoice == 2){
+                    } else if (docChoice == 2) {
+                        Magazine magazine = new Magazine();
                         magazine.add(scanner);
+                        magazines.add(magazine);
                         System.out.println("Magazine added successfully");
-                    }else{
+                    } else {
                         System.out.println("Invalid Choice");
                     }
 
@@ -74,11 +81,17 @@ public class ConsoleUI {
                     int displayChoice = scanner.nextInt();
                     scanner.nextLine();
 
-                    if(displayChoice == 1){
-                        book.displayDetails();
-                    }else if(displayChoice == 2){
-                        magazine.displayDetails();
-                    }else{
+                    if (displayChoice == 1) {
+                        for (Book book : books) {
+                            book.displayDetails();
+                            System.out.println();
+                        }
+                    } else if (displayChoice == 2) {
+                        for (Magazine magazine : magazines) {
+                            magazine.displayDetails();
+                            System.out.println();
+                        }
+                    } else {
                         System.out.println("Invalid Choice");
                     }
 

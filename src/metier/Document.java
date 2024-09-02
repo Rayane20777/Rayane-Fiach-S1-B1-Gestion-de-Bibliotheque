@@ -1,6 +1,6 @@
 package metier;
 
-abstract class Document {
+public abstract class Document {
     private int id;
     private String title;
     private String author;

@@ -1,15 +1,14 @@
 package metier;
-import java.time.LocalDate;
 
-public abstract class Document {
+abstract class Document {
     private int id;
     private String title;
     private String author;
-    private LocalDate publicationDate;
+    private String publicationDate;
     private int numberOfPages;
     private boolean status;
 
-    Document(int id, String title, String author, LocalDate publicationDate, int numberOfPages, boolean status){
+    Document(int id, String title, String author, String publicationDate, int numberOfPages, boolean status){
         this.id = id;
         this.title = title;
         this.author = author;
@@ -37,10 +36,10 @@ public abstract class Document {
     public void setAuthor(String author){
         this.author = author;
     }
-    public LocalDate getPublicationDate(){
+    public String getPublicationDate(){
         return publicationDate;
     }
-    public void setPublicationDate(LocalDate publicationDate){
+    public void setPublicationDate(String publicationDate){
         this.publicationDate = publicationDate;
     }
     public int getNumberOfPages(){
@@ -58,10 +57,9 @@ public abstract class Document {
 
 
 
-    public abstract void borrow();
-    public abstract void returnDocument();
-    public abstract void displayDetails();
-
+    abstract void borrow();
+    abstract void returnDocument();
+    abstract void displayDetails();
 
 
 }

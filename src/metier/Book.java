@@ -29,8 +29,6 @@ public class Book extends Document{
         this.setPublicationDate(scanner.nextLine());
         System.out.print("Enter number of pages: ");
         this.setNumberOfPages(Integer.parseInt(scanner.nextLine()));
-        System.out.print("Enter status: ");
-        this.setStatus(Boolean.parseBoolean(scanner.nextLine()));
         System.out.print("Enter isbn: ");
         this.setIsbn(scanner.nextLine());
 
@@ -46,7 +44,7 @@ public class Book extends Document{
     }
     public void returnDocument(){
         if(!getStatus()){
-            setStatus(false);
+            setStatus(true);
             System.out.println("You have Returned" + getTitle());
         }else{
             System.out.println(getTitle() + "is already Available!");

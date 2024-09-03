@@ -80,7 +80,7 @@ public class ConsoleUI {
                     break;
                 case 2:
                     System.out.println("******************************************");
-                    System.out.println("Books borrowing");
+                    System.out.println("Document borrowing");
                     System.out.println("For \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
                     int docBorrow = scanner.nextInt();
@@ -120,6 +120,37 @@ public class ConsoleUI {
 
                     break;
                 case 3:
+                    System.out.println("******************************************");
+                    System.out.println("Document returns");
+                    System.out.println("To return a \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
+                    System.out.println("******************************************");
+                    int docReturn = scanner.nextInt();
+                    scanner.nextLine();
+                    if (docReturn == 1) {
+                        System.out.println("Enter name for book to return");
+                        String bookName = scanner.nextLine().toLowerCase();
+                        Book book = bookMap.get(bookName);
+                        System.out.println(book);
+                        if (book != null) {
+                            book.returnDocument();
+                            System.out.println("Book returned successfully");
+                        }else{
+                            System.out.println("Book not found");
+                        }
+
+                    }else if (docReturn == 2) {
+                        System.out.println("Enter name for magazine to return");
+                        String magazineName = scanner.nextLine().toLowerCase();
+                        Magazine magazine = magazineMap.get(magazineName.toLowerCase());
+                        if (magazine != null) {
+                            magazine.returnDocument();
+                            System.out.println("Magazine returned successfully");
+                        }else{
+                            System.out.println("Magazine not found");
+                        }
+                    }else{
+                        System.out.println("Invalid Choice");
+                    }
                     break;
                 case 4:
                     System.out.println("Display Books or Magazine");

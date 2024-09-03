@@ -31,9 +31,7 @@ public void add(Scanner scanner){
     setPublicationDate(scanner.nextLine());
     System.out.print("Enter the number of pages: ");
     setNumberOfPages(scanner.nextInt());
-    System.out.print("Enter the status of the magazine: ");
-    setStatus(scanner.nextBoolean());
-    System.out.print("Enter magazine serie: ");
+    System.out.print("Enter magazine series: ");
     setNumber(scanner.nextInt());
 
 
@@ -53,7 +51,7 @@ public void setNumber(int number) {
     }
     public void returnDocument(){
         if(!getStatus()){
-            setStatus(false);
+            setStatus(true);
             System.out.println("You have Returned" + getTitle());
         }else{
             System.out.println(getTitle() + "is already Available!");

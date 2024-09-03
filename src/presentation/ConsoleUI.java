@@ -61,7 +61,7 @@ public class ConsoleUI {
 
 
 
-                    if (docChoice == 1) {
+                    if (docChoice == 1)  {
                         Book book = new Book();
                         book.add(scanner);
                         books.add(book);

@@ -174,6 +174,28 @@ public class ConsoleUI {
 
                     break;
                 case 5:
+                    System.out.println("Display Books or Magazine");
+                    System.out.println("To Search for a \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
+                    System.out.println("*****************************************");
+                    int searchChoice = scanner.nextInt();
+                    scanner.nextLine();
+
+
+                    if (searchChoice == 1) {
+                        System.out.println("Enter name for book to display");
+                        String bookTitle = scanner.nextLine();
+                        Book.search(books, bookTitle);
+
+                    } else if (searchChoice == 2) {
+                        System.out.println("Enter name for magazine to display");
+                        String magazineTitle = scanner.nextLine();
+                        Magazine.search(magazines, magazineTitle);
+
+                    }else{
+                        System.out.println("Invalid Choice");
+                    }
+
+
                     break;
                 case 6:
                     System.out.println("Merci d'avoir utilisé l'application.");

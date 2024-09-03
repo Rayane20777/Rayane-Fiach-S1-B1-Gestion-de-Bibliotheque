@@ -1,5 +1,6 @@
 package metier;
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -60,6 +61,25 @@ public void setNumber(int number) {
     }
     public void displayDetails(){
         System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPublication Date: " + getPublicationDate() + "\nNumber: " + getNumber() + "\nStatus: " + getStatus() + "\nNumber of pages: " + getNumberOfPages());
+    }
+
+    public static void search(List<Magazine> magazines, String title){
+        boolean found = false;
+        title = title.toLowerCase();
+
+        for (Magazine magazine : magazines) {
+            if (magazine.getTitle().toLowerCase().equals(title)) {
+                if (!found) {
+                    System.out.println("Magazine(s) found:");
+                }
+                magazine.displayDetails();
+                System.out.println();
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No magazines found with the title \"" + title + "\".");
+        }
     }
 
 

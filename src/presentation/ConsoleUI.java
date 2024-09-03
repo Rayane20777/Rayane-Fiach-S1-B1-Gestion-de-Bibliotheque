@@ -6,6 +6,7 @@ import metier.Document;
 import utilitaire.DateUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -16,11 +17,16 @@ public class ConsoleUI {
     private final Scanner scanner;
     private final List<Book> books;
     private final List<Magazine> magazines;
+    private final HashMap<String, Book> bookMap;
+    private final HashMap<String, Magazine> magazineMap;
 
     public ConsoleUI() {
         scanner = new Scanner(System.in);
         books = new ArrayList<>();
         magazines = new ArrayList<>();
+        bookMap = new HashMap<>();
+        magazineMap = new HashMap<>();
+
     }
 
 
@@ -59,11 +65,13 @@ public class ConsoleUI {
                         Book book = new Book();
                         book.add(scanner);
                         books.add(book);
+                        bookMap.put(book.getTitle().toLowerCase(), book);
                         System.out.println("Book added successfully");
                     } else if (docChoice == 2) {
                         Magazine magazine = new Magazine();
                         magazine.add(scanner);
                         magazines.add(magazine);
+                        magazineMap.put(magazine.getTitle().toLowerCase(), magazine);
                         System.out.println("Magazine added successfully");
                     } else {
                         System.out.println("Invalid Choice");
@@ -71,6 +79,44 @@ public class ConsoleUI {
 
                     break;
                 case 2:
+                    System.out.println("******************************************");
+                    System.out.println("Books borrowing");
+                    System.out.println("For \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
+                    System.out.println("******************************************");
+                    int docBorrow = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (docBorrow == 1) {
+                        System.out.println("Enter name for book to borrow");
+                        String bookName = scanner.nextLine().toLowerCase();
+                        Book book = bookMap.get(bookName);
+
+                        System.out.println(book);
+                        if (book != null) {
+                            book.borrow();
+                            System.out.println("Book borrowed successfully");
+
+                        }else{
+                            System.out.println("Book not found");
+
+                        }
+
+                    } else if (docBorrow == 2) {
+                        System.out.println("Enter name for magazine to borrow");
+                        String magazineName = scanner.nextLine();
+                        Magazine magazine = magazineMap.get(magazineName.toLowerCase());
+                        if (magazine != null) {
+                            magazine.borrow();
+                            System.out.println("Magazine borrowed successfully");
+
+                        }else{
+                            System.out.println("Magazine not found");
+                        }
+
+                    }else{
+                        System.out.println("Invalid Choice");
+                    }
+
 
                     break;
                 case 3:

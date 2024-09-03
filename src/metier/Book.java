@@ -3,13 +3,14 @@ import java.util.Scanner;
 
 public class Book extends Document{
     private String isbn;
-    public Book () {
-        super(0,"","","",0,true);
-        this.isbn = "";
-    }
+
     public Book (int id, String title, String author, String publicationDate, int numberOfPages, boolean status, String isbn) {
         super(id, title, author, publicationDate, numberOfPages, status);
         this.isbn = isbn;
+    }
+    public Book () {
+        super(0,"","","",0,true);
+        this.isbn = "";
     }
     public String getIsbn() {
         return isbn;
@@ -53,7 +54,7 @@ public class Book extends Document{
 
     }
     public void displayDetails(){
-            System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPublication Date: " + getPublicationDate() + "\nISBN: " + getIsbn());
+            System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPublication Date: " + getPublicationDate() + "\nISBN: " + getIsbn() + "\nStatus: " + getStatus());
     }
 
 }

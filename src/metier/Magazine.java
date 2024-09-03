@@ -7,15 +7,17 @@ public class Magazine extends Document {
 
 private int number;
 
-    public Magazine () {
-        super(0,"","","",0,true);
-        this.number = 0;
-    }
+
 
 public Magazine (int id, String title, String author, String publicationDate, int numberOfPages, boolean status, int number) {
     super(id, title, author, publicationDate, numberOfPages, status);
     this.number = number;
 }
+    public Magazine () {
+        super(0,"","","",0,true);
+        this.number = 0;
+    }
+
 public int getNumber() {
     return number;
 }
@@ -59,7 +61,7 @@ public void setNumber(int number) {
 
     }
     public void displayDetails(){
-        System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPublication Date: " + getPublicationDate() + "\nNumber: " + getNumber());
+        System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPublication Date: " + getPublicationDate() + "\nNumber: " + getNumber() + "\nStatus: " + getStatus() + "\nNumber of pages: " + getNumberOfPages());
     }
 
 

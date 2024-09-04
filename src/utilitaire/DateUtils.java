@@ -16,7 +16,6 @@ public class DateUtils {
             System.out.println("Invalid date format. Please use the format dd/MM/yyyy.");
             return null;
         }
-        //test
     }
 
     // Formats a LocalDate object into a string

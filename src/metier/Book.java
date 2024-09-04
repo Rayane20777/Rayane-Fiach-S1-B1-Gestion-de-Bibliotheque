@@ -3,6 +3,7 @@ package metier;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Book extends Document {
 
@@ -19,21 +20,19 @@ public class Book extends Document {
     }
 
     public static void search(List<Book> books, String title) {
-        boolean found = false;
-        title = title.toLowerCase();
+        final String  searchTitle  = title.toLowerCase();
 
-        for (Book book : books) {
-            if (book.getTitle().toLowerCase().equals(title)) {
-                if (!found) {
-                    System.out.println("Book(s) found:");
-                }
+        List<Book> foundBooks = books.stream()
+                .filter(book -> book.getTitle().toLowerCase().equals(searchTitle))
+                .collect(Collectors.toList());
+        if (foundBooks.isEmpty()) {
+            System.out.println("No books found with the title \"" + title + "\".");
+        } else {
+            System.out.println("Book(s) found:");
+            foundBooks.forEach(book -> {
                 book.displayDetails();
                 System.out.println();
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("No books found with the title \"" + title + "\".");
+            });
         }
 
     }

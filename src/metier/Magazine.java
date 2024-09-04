@@ -11,12 +11,12 @@ private int number;
 
 
 
-public Magazine (int id, String title, String author, LocalDate publicationDate, int numberOfPages, boolean status, int number) {
-    super(id, title, author, publicationDate, numberOfPages, status);
+public Magazine ( String title, String author, LocalDate publicationDate, int numberOfPages, boolean status, int number) {
+    super( title, author, publicationDate, numberOfPages, status);
     this.number = number;
 }
     public Magazine () {
-        super(0,"","",LocalDate.now(), 0,true);
+        super("","",LocalDate.now(), 0,true);
         this.number = 0;
     }
 

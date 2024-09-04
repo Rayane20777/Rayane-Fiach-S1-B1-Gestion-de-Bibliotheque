@@ -1,18 +1,20 @@
 package metier;
+
 import java.time.LocalDate;
-import java.util.Scanner;
 import java.util.List;
+import java.util.Scanner;
 
 public class Book extends Document {
+
     private String isbn;
 
-    public Book(int id, String title, String author, LocalDate publicationDate, int numberOfPages, boolean status, String isbn) {
-        super(id, title, author, publicationDate, numberOfPages, status);
+    public Book(String title, String author, LocalDate publicationDate, int numberOfPages, boolean status, String isbn) {
+        super(title, author, publicationDate, numberOfPages, status);
         this.isbn = isbn;
     }
 
     public Book() {
-        super(0, "", "", LocalDate.now(), 0, true);
+        super("", "", LocalDate.now(), 0, true);
         this.isbn = "";
     }
 
@@ -63,7 +65,6 @@ public class Book extends Document {
         System.out.print("Enter isbn: ");
         this.setIsbn(scanner.nextLine());
 
-
     }
 
     public void borrow() {
@@ -89,4 +90,3 @@ public class Book extends Document {
         System.out.println("Title: " + getTitle() + "\nAuthor: " + getAuthor() + "\nPublication Date: " + getPublicationDate() + "\nISBN: " + getIsbn() + "\nStatus: " + getStatus());
     }
 }
-

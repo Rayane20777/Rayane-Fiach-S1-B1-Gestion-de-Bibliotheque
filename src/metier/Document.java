@@ -3,15 +3,13 @@ import utilitaire.DateUtils;
 import java.time.LocalDate;
 
 public abstract class Document {
-    private int id;
     private String title;
     private String author;
     private LocalDate publicationDate;
     private int numberOfPages;
     private boolean status;
 
-    Document(int id, String title, String author, LocalDate publicationDate, int numberOfPages, boolean status){
-        this.id = id;
+    Document( String title, String author, LocalDate publicationDate, int numberOfPages, boolean status){
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
@@ -19,12 +17,7 @@ public abstract class Document {
         this.status = status;
     }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id){
-        this.id = id;
-    }
+
 
     public String getTitle(){
         return title;

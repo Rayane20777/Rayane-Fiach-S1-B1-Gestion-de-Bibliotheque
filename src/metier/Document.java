@@ -1,14 +1,16 @@
 package metier;
+import utilitaire.DateUtils;
+import java.time.LocalDate;
 
 public abstract class Document {
     private int id;
     private String title;
     private String author;
-    private String publicationDate;
+    private LocalDate publicationDate;
     private int numberOfPages;
     private boolean status;
 
-    Document(int id, String title, String author, String publicationDate, int numberOfPages, boolean status){
+    Document(int id, String title, String author, LocalDate publicationDate, int numberOfPages, boolean status){
         this.id = id;
         this.title = title;
         this.author = author;
@@ -36,11 +38,14 @@ public abstract class Document {
     public void setAuthor(String author){
         this.author = author;
     }
-    public String getPublicationDate(){
+    public LocalDate getPublicationDate() {
         return publicationDate;
     }
-    public void setPublicationDate(String publicationDate){
+    public void setPublicationDate(LocalDate publicationDate) {
         this.publicationDate = publicationDate;
+    }
+    public void setPublicationDate(String publicationDateStr) {
+        this.publicationDate = DateUtils.parseDate(publicationDateStr);
     }
     public int getNumberOfPages(){
         return numberOfPages;

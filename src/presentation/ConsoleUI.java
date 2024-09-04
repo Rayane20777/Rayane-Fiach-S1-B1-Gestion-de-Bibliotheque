@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import utilitaire.DateUtils;
 
 
 public class ConsoleUI {
@@ -38,7 +39,10 @@ public class ConsoleUI {
                 System.out.println("*  5. Rechercher un document             *");
                 System.out.println("*  6. Quitter                            *");
                 System.out.println("******************************************");
-
+                while (!scanner.hasNextInt()) {
+                    System.out.println("+ Invalid input."  + " Please enter a valid number: ");
+                    scanner.next();
+                }
                 int choice = scanner.nextInt();
                 handleUserChoice(choice);
 
@@ -53,6 +57,11 @@ public class ConsoleUI {
                     System.out.println("******************************************");
                     System.out.println("For \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
+
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
+                        scanner.next();
+                    }
                     int docChoice = scanner.nextInt();
                     scanner.nextLine();
 
@@ -80,6 +89,10 @@ public class ConsoleUI {
                     System.out.println("Document borrowing");
                     System.out.println("For \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
+                        scanner.next();
+                    }
                     int docBorrow = scanner.nextInt();
                     scanner.nextLine();
 
@@ -121,6 +134,10 @@ public class ConsoleUI {
                     System.out.println("Document returns");
                     System.out.println("To return a \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
+                        scanner.next();
+                    }
                     int docReturn = scanner.nextInt();
                     scanner.nextLine();
                     if (docReturn == 1) {
@@ -152,17 +169,23 @@ public class ConsoleUI {
                 case 4:
                     System.out.println("Display Books or Magazine");
                     System.out.println("1 for Books , 2 for Magazine");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
+                        scanner.next();
+                    }
                     int displayChoice = scanner.nextInt();
                     scanner.nextLine();
 
                     if (displayChoice == 1) {
                         for (Book book : books) {
                             book.displayDetails();
+                            System.out.println("Publication Date: " + DateUtils.formatDate(book.getPublicationDate()));
                             System.out.println();
                         }
                     } else if (displayChoice == 2) {
                         for (Magazine magazine : magazines) {
                             magazine.displayDetails();
+                            System.out.println("Publication Date: " + DateUtils.formatDate(magazine.getPublicationDate()));
                             System.out.println();
                         }
                     } else {
@@ -174,6 +197,10 @@ public class ConsoleUI {
                     System.out.println("Display Books or Magazine");
                     System.out.println("To Search for a \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("*****************************************");
+                    while (!scanner.hasNextInt()) {
+                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
+                        scanner.next();
+                    }
                     int searchChoice = scanner.nextInt();
                     scanner.nextLine();
 

@@ -39,11 +39,8 @@ public class ConsoleUI {
                 System.out.println("*  5. Rechercher un document             *");
                 System.out.println("*  6. Quitter                            *");
                 System.out.println("******************************************");
-                while (!scanner.hasNextInt()) {
-                    System.out.println("+ Invalid input."  + " Please enter a valid number: ");
-                    scanner.next();
-                }
-                int choice = scanner.nextInt();
+
+                int choice = (DateUtils.getValidatedIntInput(scanner));
                 handleUserChoice(choice);
 
             }
@@ -58,11 +55,8 @@ public class ConsoleUI {
                     System.out.println("For \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
 
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
-                        scanner.next();
-                    }
-                    int docChoice = scanner.nextInt();
+
+                    int docChoice = (DateUtils.getValidatedIntInput(scanner));
                     scanner.nextLine();
 
 
@@ -89,11 +83,7 @@ public class ConsoleUI {
                     System.out.println("Document borrowing");
                     System.out.println("For \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
-                        scanner.next();
-                    }
-                    int docBorrow = scanner.nextInt();
+                    int docBorrow = (DateUtils.getValidatedIntInput(scanner));
                     scanner.nextLine();
 
                     if (docBorrow == 1) {
@@ -134,11 +124,7 @@ public class ConsoleUI {
                     System.out.println("Document returns");
                     System.out.println("To return a \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("******************************************");
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
-                        scanner.next();
-                    }
-                    int docReturn = scanner.nextInt();
+                    int docReturn = (DateUtils.getValidatedIntInput(scanner));
                     scanner.nextLine();
                     if (docReturn == 1) {
                         System.out.println("Enter name for book to return");
@@ -169,25 +155,22 @@ public class ConsoleUI {
                 case 4:
                     System.out.println("Display Books or Magazine");
                     System.out.println("1 for Books , 2 for Magazine");
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
-                        scanner.next();
-                    }
-                    int displayChoice = scanner.nextInt();
+
+                    int displayChoice = (DateUtils.getValidatedIntInput(scanner));
                     scanner.nextLine();
 
                     if (displayChoice == 1) {
-                        for (Book book : books) {
+                        books.forEach(book -> {
                             book.displayDetails();
                             System.out.println("Publication Date: " + DateUtils.formatDate(book.getPublicationDate()));
                             System.out.println();
-                        }
+                        });
                     } else if (displayChoice == 2) {
-                        for (Magazine magazine : magazines) {
+                        magazines.forEach(magazine -> {
                             magazine.displayDetails();
                             System.out.println("Publication Date: " + DateUtils.formatDate(magazine.getPublicationDate()));
                             System.out.println();
-                        }
+                        });
                     } else {
                         System.out.println("Invalid Choice");
                     }
@@ -197,11 +180,8 @@ public class ConsoleUI {
                     System.out.println("Display Books or Magazine");
                     System.out.println("To Search for a \"Book\" choose \"1\" or choose \"2\" for \"Magazine\" ");
                     System.out.println("*****************************************");
-                    while (!scanner.hasNextInt()) {
-                        System.out.println("+ Invalid input."  + " Please enter a valid number: ");
-                        scanner.next();
-                    }
-                    int searchChoice = scanner.nextInt();
+
+                    int searchChoice = (DateUtils.getValidatedIntInput(scanner));
                     scanner.nextLine();
 
 

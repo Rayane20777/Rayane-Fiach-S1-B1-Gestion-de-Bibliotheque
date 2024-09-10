@@ -3,7 +3,7 @@ package metier;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
-
+import utilitaire.DateUtils;
 
 public class Magazine extends Document {
 
@@ -56,20 +56,11 @@ public void add(Scanner scanner){
     this.setPublicationDate(scanner.nextLine());
 
     System.out.print("Enter the number of pages: ");
-    while (!scanner.hasNextInt()) {
-        System.out.println(" Invalid input Please enter a valid number: ");
-        scanner.nextLine();
-    }
-    this.setNumberOfPages(scanner.nextInt());
-    scanner.nextLine();
+    this.setNumberOfPages(DateUtils.getValidatedIntInput(scanner));
 
 
     System.out.print("Enter magazine series: ");
-    while (!scanner.hasNextInt()) {
-        System.out.println(" Invalid input Please enter a valid number: ");
-        scanner.nextLine();
-    }
-    this.setNumber(scanner.nextInt());
+    this.setNumber(DateUtils.getValidatedIntInput(scanner));
 
 
 

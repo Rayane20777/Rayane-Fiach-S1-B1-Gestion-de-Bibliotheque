@@ -25,7 +25,9 @@ public class DateUtils {
         }
         return date.format(formatter);
     }
-    private int getValidatedIntInput(Scanner scanner) {
+
+    // validates the input from the user
+    public static int getValidatedIntInput(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             System.out.print("Invalid input. Please enter a valid number: ");
             scanner.next();
